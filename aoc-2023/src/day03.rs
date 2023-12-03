@@ -55,10 +55,9 @@ fn part1(input: &str) -> u32 {
     input.lines()
         .enumerate()
         .map(|(i, line)| {
-            let sum: u32 = re.find_iter(line)
+            re.find_iter(line)
                 .filter_map(|num| is_part(&grid, i, &num))
-                .sum();
-            sum
+                .sum::<u32>()
         })
         .sum()
 }
@@ -77,7 +76,6 @@ fn is_part2(grid: &Grid<u8>, row: usize, m: &Match) -> Option<(usize, usize, u32
                     if is_symbol(*c) {
                         return Some((nr, nc, m.as_str().parse().unwrap()));
                     }
-
                 }
             }
         }
@@ -99,7 +97,6 @@ fn part2(input: &str) -> u32 {
     for (row, line) in input.lines().enumerate() {
         for m in re.find_iter(line) {
             if let Some(part) = is_part2(&grid, row, &m) {
-                // println!("found: {:?}", part);
                 let position = (part.0, part.1);
                 let part = m.as_str().parse().unwrap();
                 if let Some(positions) = symbols.get_mut(&position) {
