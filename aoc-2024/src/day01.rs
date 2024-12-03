@@ -19,7 +19,7 @@ fn part1(input: &str) -> u32 {
 
 #[aoc(day1, part2)]
 fn part2(input: &str) -> u32 {
-    let mut lists: (Vec<u32>, Vec<u32>) = input.lines()
+    let lists: (Vec<u32>, Vec<u32>) = input.lines()
         .map(|line| line.split_whitespace()
             .map(|v| v.parse::<u32>().unwrap())
             .next_tuple()
