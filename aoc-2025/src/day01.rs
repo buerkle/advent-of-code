@@ -1,12 +1,12 @@
 use aoc_runner_derive::{aoc};
 
 #[aoc(day1, part1)]
-fn part1(input: &str) -> u32 {
+fn part1(_input: &str) -> u32 {
     11
 }
 
 #[aoc(day1, part2)]
-fn part2(input: &str) -> u32 {
+fn part2(_input: &str) -> u32 {
     31
 }
 
