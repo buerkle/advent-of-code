@@ -63,15 +63,10 @@ fn part2(input: &str) -> u32 {
     }
 
     let mut total = 0;
-    loop {
-        let (count, positions) = turn(&grid);
-        if count == 0 {
-            break;
-        }
-
+    while let (count, position) = turn(&grid) && count > 0 {
         total += count;
 
-        for (row, col) in positions {
+        for (row, col) in position {
             grid[(row,col)] = '.';
         }
     }
